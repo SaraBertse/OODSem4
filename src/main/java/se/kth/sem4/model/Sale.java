@@ -133,11 +133,10 @@ public class Sale {
      */
     public void resetTotalPrice(){
         this.runningTotal = new Amount(0);
-        //notifyObservers();
     }
     
     /**
-     * Ends the sale and notifies observers.
+     * Ends the sale.
      * 
      * @param purchaseInfo This is the PurchaseInfoDTO containing the information
      * about the sale.
@@ -148,17 +147,18 @@ public class Sale {
         
         this.totalPrice = purchaseInfo.getRunningTotal();
         
-        notifyObservers();
         return totalPrice;
     }
     
     /**
-     * Transfers the value of the amount the customer paid to the Sale.
+     * Transfers the value of the amount the customer paid to the Sale and
+     * notifies the observer(s).
      * 
      * @param paidAmount 
      */
     public void updateAmountPaid(Amount paidAmount){
-  
+        
+        notifyObservers();
         this.payment = paidAmount;
     }
     

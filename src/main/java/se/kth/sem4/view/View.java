@@ -18,6 +18,7 @@ public class View {
     ErrorMessageHandler errorMsgHandler = new ErrorMessageHandler();
     public Amount totalPrice;
     LogHandler logger = new LogHandler();
+    private Amount change;
     
     /**
      * Creates a new instance.
@@ -54,7 +55,7 @@ public class View {
         
         System.out.println("The total price is " + totalPrice);
        
-        Amount change = contr.enterAmountPaid(new Amount(200), totalPrice);
+        this.change = contr.enterAmountPaid(new Amount(200), totalPrice);
         
         System.out.println("The change is " + change);
         System.out.println();
@@ -68,8 +69,10 @@ public class View {
         contr.startSale();
         PurchaseInfoDTO purchaseInfo6 = contr.enterItem(112, 2);
         PurchaseInfoDTO purchaseInfo7 = contr.enterItem(112, 2);
+        System.out.println(purchaseInfo6);
+        System.out.println(purchaseInfo7);
         this.totalPrice = contr.endSale(purchaseInfo7);
-        System.out.println("The total price of Sale 2 is " + totalPrice);
+        this.change = contr.enterAmountPaid(new Amount(200), totalPrice);
        
         }
         catch(OperationFailedException exc){
