@@ -149,7 +149,6 @@ public class Sale {
         this.totalPrice = purchaseInfo.getRunningTotal();
         
         notifyObservers();
-        //notifyObservers();
         return totalPrice;
     }
     
@@ -162,11 +161,19 @@ public class Sale {
         this.payment = paidAmount;
     }
     
+    /**
+     * Notifies any observers.
+     */
     private void notifyObservers(){
         for(RevenueObserver obs : revenueObservers)
             obs.newPayment(totalPrice);
     }
     
+    /**
+     * Adds revenue observers.
+     * 
+     * @param observers The list of revenue observers to be added. 
+     */
     public void addRevenueObservers (List <RevenueObserver> observers){
         revenueObservers.addAll(observers);
     }

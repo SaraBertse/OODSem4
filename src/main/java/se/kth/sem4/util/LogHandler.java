@@ -14,6 +14,11 @@ public class LogHandler {
     private static final String LOG_FILE_NAME = "sale_error.txt";
     private PrintWriter logFile;
     
+    /**
+     * Creates a new instance of LogHandler.
+     * 
+     * @throws IOException if the program is not working correctly.
+     */
     public LogHandler() throws IOException {
         logFile = new PrintWriter(new FileWriter(LOG_FILE_NAME), true);
     }
@@ -32,6 +37,11 @@ public class LogHandler {
         exc.printStackTrace(logFile);
     }
 
+    /**
+     * Creates a string with the time at that moment.
+     * 
+     * @return The formatted string with the time.
+     */
     private String createTime() {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);

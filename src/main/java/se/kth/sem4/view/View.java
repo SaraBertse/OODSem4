@@ -30,6 +30,9 @@ public class View {
     
     /**
      * This is the hardcoded sample execution.
+     * 
+     * @throws IOException This is thrown if the program is not working for some
+     * unknown reason.
      */
     public void sampleExecution() throws IOException{
     try{    
@@ -78,7 +81,12 @@ public class View {
                  + " enter the right item ID.", exc);
         }
 }
-
+    /**
+     * Prints a message and logs the exception.
+     * 
+     * @param message The message to be printed.
+     * @param exc The exception to log.
+     */
     private void handleException(String message, Exception exc) {
         errorMsgHandler.showErrorMessage(message);
         logger.logException(exc);

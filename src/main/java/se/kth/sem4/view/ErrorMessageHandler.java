@@ -6,6 +6,11 @@ package se.kth.sem4.view;
  */
 public class ErrorMessageHandler {
 
+    /**
+     * This shows the error message.
+     * 
+     * @param message The message that should be shown to the user.
+     */
     public void showErrorMessage(String message) {
         StringBuilder errorMsgBuilder = new StringBuilder();
         errorMsgBuilder.append("ERROR: ");
