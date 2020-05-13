@@ -133,7 +133,7 @@ public class Sale {
      */
     public void resetTotalPrice(){
         this.runningTotal = new Amount(0);
-        notifyObservers();
+        //notifyObservers();
     }
     
     /**
@@ -158,6 +158,7 @@ public class Sale {
      * @param paidAmount 
      */
     public void updateAmountPaid(Amount paidAmount){
+  
         this.payment = paidAmount;
     }
     
