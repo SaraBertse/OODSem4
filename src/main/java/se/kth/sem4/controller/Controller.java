@@ -29,7 +29,7 @@ public class Controller {
     private List<RevenueObserver> revenueObservers = new ArrayList<>();
     
     /**
-     * Creates a new sale
+     * Creates a new sale.
      */
     public void startSale(){
         this.sale = new Sale();
@@ -45,6 +45,11 @@ public class Controller {
      * @param quantity How many of the item is being purchased.
      * 
      * @return Returns item description, item price and running total. 
+     * 
+     * @throws InvalidItemException Is thrown when the item ID doesn't exist 
+     * in the database.
+     * @throws OperationFailedException Is thrown when an InventoryDatabaseException
+     * happens (database not working for whatever reason).
      */  
      public PurchaseInfoDTO enterItem(int itemID, int quantity) throws InvalidItemException, 
                                                                      OperationFailedException{

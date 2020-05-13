@@ -6,7 +6,7 @@ import se.kth.sem4.integration.InvalidItemException;
 import se.kth.sem4.integration.InventoryDatabaseException;
 import se.kth.sem4.model.PurchaseInfoDTO;
 import se.kth.sem4.model.Amount;
-import util.LogHandler;
+import se.kth.sem4.util.LogHandler;
 
 /**
  * Currently the placeholder class for the user interface. Also has a 
@@ -34,7 +34,7 @@ public class View {
     public void sampleExecution() throws IOException{
     try{    
         contr.startSale();
-        PurchaseInfoDTO purchaseInfo1 = contr.enterItem(116, 2);
+        PurchaseInfoDTO purchaseInfo1 = contr.enterItem(112, 2);
         PurchaseInfoDTO purchaseInfo2 = contr.enterItem(112, 1);
         PurchaseInfoDTO purchaseInfo3 = contr.enterItem(114, 2);
         PurchaseInfoDTO purchaseInfo4 = contr.enterItem(111, 1);

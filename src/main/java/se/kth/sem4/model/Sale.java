@@ -3,7 +3,6 @@ package se.kth.sem4.model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import se.kth.sem4.integration.InvalidItemException;
 
 /**
  * Represents an ongoing sale.
@@ -126,25 +125,32 @@ public class Sale {
         
         Amount change = payment.minus(totalPrice); 
         
-        //notifyObservers();
         return change;
     }
     
+    /**
+     * Resets the total price of the sale to 0.
+     */
     public void resetTotalPrice(){
         this.runningTotal = new Amount(0);
+        notifyObservers();
     }
     
+    /**
+     * Ends the sale and notifies observers.
+     * 
+     * @param purchaseInfo This is the PurchaseInfoDTO containing the information
+     * about the sale.
+     * 
+     * @return Returns the total price of the sale. 
+     */
     public Amount endSale(PurchaseInfoDTO purchaseInfo){
         
         this.totalPrice = purchaseInfo.getRunningTotal();
         
         notifyObservers();
+        //notifyObservers();
         return totalPrice;
-    }
-    
-    public void getObserverMessage()
-    {
-        notifyObservers();
     }
     
     /**

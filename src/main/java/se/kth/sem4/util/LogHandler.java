@@ -1,4 +1,4 @@
-package util;
+package se.kth.sem4.util;
 
 import java.io.FileWriter;
 import java.io.IOException;

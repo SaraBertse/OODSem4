@@ -8,7 +8,7 @@ import se.kth.sem4.integration.InventoryDatabaseException;
 import se.kth.sem4.view.View;
 import se.kth.sem4.model.CashRegister;
 import se.kth.sem4.model.Sale;
-import util.LogHandler;
+import se.kth.sem4.util.LogHandler;
 
 /**
  * This starts up the entire program.
@@ -26,7 +26,6 @@ public class Main {
         Sale sale = new Sale();
         CashRegister cashreg = new CashRegister();
         Controller contr = new Controller();
-        View view = new View(contr);
         new View(contr).sampleExecution();
         }
         catch (InventoryDatabaseException exc){
