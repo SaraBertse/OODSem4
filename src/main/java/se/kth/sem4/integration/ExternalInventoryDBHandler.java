@@ -10,6 +10,7 @@ import se.kth.sem4.model.SalesLogDTO;
  */
 public class ExternalInventoryDBHandler {
     private ItemDTO returnedItem;
+    InventoryDatabase invDB = InventoryDatabase.getInventoryDatabase();
     
     /**
      * Retrieves the description, price and tax rate of an item as an item DTO.
@@ -32,7 +33,7 @@ public class ExternalInventoryDBHandler {
            throw new InvalidItemException("Item ID does not exist");
         }
        
-        ItemDTO itemDTO = fetchItem(itemID);    
+        ItemDTO itemDTO = invDB.fetchItem(itemID);    
         return itemDTO;
     }
     
@@ -41,27 +42,6 @@ public class ExternalInventoryDBHandler {
      * @param itemID The item's unique ID.
      * @return Returns the item that matches the item ID.
      */
-    private ItemDTO fetchItem(int itemID){
-        
-    ItemDTO item1 = new ItemDTO("Milk, VAT 12%", new Amount(12), new Amount(12));
-    ItemDTO item2 = new ItemDTO("Bread, VAT 12%", new Amount(20), new Amount(12));
-    ItemDTO item3 = new ItemDTO("Snickers, VAT 25%", new Amount(15), new Amount(25));
-    ItemDTO item4 = new ItemDTO("Tomato, VAT 6%", new Amount(2), new Amount(6));
-        
-        switch(itemID) {
-            case 111: returnedItem = item1;
-                break;
-            case 112: returnedItem = item2;
-                break;
-            case 113: returnedItem = item3;
-                break;
-            case 114: returnedItem = item4;
-                break;
-        }
-        
-        return returnedItem;
-     
-     }
     
     /**
      * Is a shell method for updating the external inventory. Since

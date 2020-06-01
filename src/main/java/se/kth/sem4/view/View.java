@@ -72,8 +72,12 @@ public class View {
         System.out.println(purchaseInfo6);
         System.out.println(purchaseInfo7);
         this.totalPrice = contr.endSale(purchaseInfo7);
+        System.out.println("The total price is " + totalPrice);
+        contr.signalDiscountRequest();
+        Amount priceAfterDiscount = contr.enterCustomerID(552233);
+        System.out.println("Price with discount if applicable, otherwise without: " + priceAfterDiscount);
         this.change = contr.enterAmountPaid(new Amount(200), totalPrice);
-       
+      
         }
         catch(OperationFailedException exc){
             handleException("Could not reach item database, please try again.", exc);

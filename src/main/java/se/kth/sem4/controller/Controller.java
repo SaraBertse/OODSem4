@@ -13,6 +13,7 @@ import se.kth.sem4.integration.InventoryDatabaseException;
 import se.kth.sem4.model.Amount;
 import se.kth.sem4.model.CashRegister;
 import se.kth.sem4.integration.PrinterHandler;
+import se.kth.sem4.model.Discount;
 import se.kth.sem4.model.RevenueObserver;
 
 /**
@@ -27,6 +28,7 @@ public class Controller {
     private List<Integer> enteredIDs = new ArrayList<>();
     PrinterHandler printerHandler = new PrinterHandler();
     private List<RevenueObserver> revenueObservers = new ArrayList<>();
+    Discount discount;
     
     /**
      * Creates a new sale.
@@ -92,6 +94,29 @@ public class Controller {
         
         sale.updateAmountPaid(payment);
         return change;
+    }
+    
+    /**
+     * Creates a new Discount if the customer signals that they might be
+     * eligible for a discount.
+     */
+    public void signalDiscountRequest(){
+        this.discount = new Discount();
+    }
+    
+    /**
+     * Checks for discount eligibility. If the customer ID is eligible, the
+     * discount is applied. If not, the previous price is displayed.
+     * 
+     * @param customerID The 6-figure customer ID of a customer. An ID starting
+     * with 11 grants a new customer discount, an ID starting with 55 grants a 
+     * VIP discount, and an ID starting with 99 grants a pensioner discount.
+     * @return If eligible, the price after discount, otherwise the previous
+     * total price is returned.
+     */
+    public Amount enterCustomerID(int customerID){
+        Amount priceAfterDiscount = discount.calculatePriceAfterDiscount(customerID, sale);
+        return priceAfterDiscount;
     }
     
     /**

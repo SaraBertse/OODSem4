@@ -162,6 +162,15 @@ public class Sale {
         this.payment = paidAmount;
     }
     
+       public void setTotalPrice(Amount totalPrice){
+           this.totalPrice = totalPrice;
+       }
+    
+       public Amount getTotalPrice(){
+       return totalPrice;
+       }
+       
+    
     /**
      * Notifies any observers.
      */
