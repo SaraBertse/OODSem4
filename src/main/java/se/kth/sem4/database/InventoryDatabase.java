@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.sem4.integration;
+package se.kth.sem4.database;
 
 import se.kth.sem4.model.Amount;
 import se.kth.sem4.model.ItemDTO;

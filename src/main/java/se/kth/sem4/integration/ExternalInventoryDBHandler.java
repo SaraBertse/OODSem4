@@ -1,5 +1,6 @@
 
 package se.kth.sem4.integration;
+import se.kth.sem4.database.InventoryDatabase;
 import se.kth.sem4.model.ItemDTO;
 import se.kth.sem4.model.Amount;
 import se.kth.sem4.model.SalesLogDTO;
