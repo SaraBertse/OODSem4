@@ -33,10 +33,9 @@ public class ControllerTest {
     public void testEnterItemInfoShouldThrowInvalidItemExc() {
         try {
             instance.enterItem(115, 1);
+            fail("InvalidItemException is not thrown when it should be.");
         } catch (InvalidItemException exc) {
-            String expectedOutput = "Item";
-            assertTrue(exc.getMessage().contains(expectedOutput), "InvalidItemException "
-                    + " not thrown when it should be.");
+        
         }
         catch (OperationFailedException exc){
             
@@ -59,11 +58,9 @@ public class ControllerTest {
     public void testEnterItemInfoShouldThrowOperationFailedException() {
         try {
             instance.enterItem(666, 1);
+            fail("OperationFaiedException is not thrown when it should be.");
         } catch (OperationFailedException exc) {
-            String expectedOutput = "please";
-            System.out.println(exc.getMessage());
-            assertTrue(exc.getMessage().contains(expectedOutput), "OperationFailedException"
-                    + " is not thrown when it should be.");
+ 
         } catch (InvalidItemException exc) {
             fail("InvalidItemException is thrown when OperationFailedException should be instead");
         }
@@ -73,6 +70,8 @@ public class ControllerTest {
     public void testEnterItemInfoShouldNotThrowOperationFailedException() {
         try {
             instance.enterItem(112, 1);
+            
+            
         } catch (InvalidItemException exc) {
             fail("InventoryDatabaseException is thrown when it shouldn't be");
 

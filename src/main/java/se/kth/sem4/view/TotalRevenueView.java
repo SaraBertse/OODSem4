@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import se.kth.sem4.model.Amount;
 import se.kth.sem4.model.RevenueObserver;
-import se.kth.sem4.model.Sale;
 
 /**
  * This class represents a display that shows the total amount paid since the

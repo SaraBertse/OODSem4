@@ -158,8 +158,8 @@ public class Sale {
      */
     public void updateAmountPaid(Amount paidAmount){
         
-        notifyObservers();
         this.payment = paidAmount;
+        notifyObservers();
     }
     
        public void setTotalPrice(Amount totalPrice){

@@ -27,10 +27,9 @@ public class ExternalInventoryDBHandlerTest {
     public void testRetrieveItemInfoShouldThrowInvalidItemExc() {
         try {
             instance.retrieveItemInfo(115);
+            fail("InvalidItemException not thrown when it should be.");
         } catch (InvalidItemException exc) {
-            String expectedOutput = "Item";
-            assertTrue(exc.getMessage().contains(expectedOutput), "InvalidItemException "
-                    + " not thrown when it should be.");
+
         }
     }
 
@@ -47,10 +46,9 @@ public class ExternalInventoryDBHandlerTest {
     public void testRetrieveItemInfoShouldThrowInventoryDatabaseExc() {
         try {
             instance.retrieveItemInfo(666);
+            fail("InventoryDatabaseException is not thrown when it should be.");
         } catch (InventoryDatabaseException exc) {
-            String expectedOutput = "database";
-            assertTrue(exc.getMessage().contains(expectedOutput), "InventoryDatabaseException"
-                    + " is not thrown when it should be.");
+    
         } catch (InvalidItemException exc) {
             fail("InvalidItemException is thrown when InventoryDatabaseException should be instead");
         }

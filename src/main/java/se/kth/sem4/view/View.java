@@ -74,7 +74,7 @@ public class View {
         this.totalPrice = contr.endSale(purchaseInfo7);
         System.out.println("The total price is " + totalPrice);
         contr.signalDiscountRequest();
-        Amount priceAfterDiscount = contr.enterCustomerID(552233);
+        Amount priceAfterDiscount = contr.enterCustomerID(992233);
         System.out.println("Price with discount if applicable, otherwise without: " + priceAfterDiscount);
         this.change = contr.enterAmountPaid(new Amount(200), totalPrice);
       
